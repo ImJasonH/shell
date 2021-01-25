@@ -11,3 +11,13 @@ terminal.onData(data => socket.emit('input', data));
 
 // When the socket has data, send it to the terminal.
 socket.on('output', data => terminal.write(data));
+
+// Log disconnect events.
+socket.on('disconnect', details => console.log('Disconnect!', details));
+
+// Log any other socket events.
+socket.onAny((evt) => {
+  if (evt != 'output') {
+    console.log(evt);
+  }
+});

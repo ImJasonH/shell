@@ -1,5 +1,3 @@
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
-
 # Cloud Run Interactive Shell
 
 This runs a server in Cloud Run which serves an interactive shell in the
