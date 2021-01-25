@@ -1,16 +1,10 @@
-const prompt = '\r\n$ ';
-
-const socket = io(window.location.href);
-
+const socket = io();
 const terminal = new Terminal();
 terminal.setOption('theme', {
-  background: "#202B33",
-  foreground: "#F5F8FA"
+  background: '#202B33',
+  foreground: '#F5F8FA'
 });
-terminal.open(document.getElementById("container"));
-terminal.write("Terminal Connected");
-terminal.write("");
-terminal.write(prompt);
+terminal.open(document.getElementById('container'));
 
 // When the terminal has data, send it to the socket.
 terminal.onData(data => socket.emit('input', data));
