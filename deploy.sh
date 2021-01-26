@@ -3,8 +3,10 @@
 set -euxo pipefail
 
 PROJECT_ID=$(gcloud config get-value project)
-time pack build gcr.io/${PROJECT_ID}/shell --builder=gcr.io/buildpacks/builder:v1 --publish
-gcloud run deploy shell --image=gcr.io/${PROJECT_ID}/shell \
+IMAGE=gcr.io/${PROJECT_ID}/shell
+docker build -t ${IMAGE} .
+docker push ${IMAGE}
+gcloud run deploy shell --image=${IMAGE} \
   --platform=managed \
   --allow-unauthenticated \
   --max-instances=1 \

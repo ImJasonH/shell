@@ -13,7 +13,7 @@ terminal.onData(data => socket.emit('input', data));
 socket.on('output', data => terminal.write(data));
 
 // Log disconnect events.
-socket.on('disconnect', details => console.log('Disconnect!', details));
+socket.on('disconnect', details => terminal.write(details));
 
 // Log any other socket events.
 socket.onAny((evt) => {
