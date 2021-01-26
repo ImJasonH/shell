@@ -10,4 +10,5 @@ gcloud run deploy shell --image=${IMAGE} \
   --platform=managed \
   --allow-unauthenticated \
   --max-instances=1 \
+  --service-account=no-permissions@${PROJECT_ID}.iam.gserviceaccount.com \
   --timeout=1m --cpu=1 --memory=256Mi  # Limit requests.
