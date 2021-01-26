@@ -26,9 +26,7 @@ io.on('connection', socket => {
   socket.on('input', input => ptyProcess.write(input));
 
   // Any time the socket disconnects, log it.
-  socket.on('disconnect', () => {
-    console.log('disconnected socket', socket.id);
-  });
+  socket.on('disconnect', () => console.log('disconnected socket', socket.id));
 });
 
 http.listen(port, () => console.log('listening on port ' + port));
